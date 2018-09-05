@@ -26,8 +26,11 @@
     </header>
   	<div class="container">
       <img src="<?= base_url('include');?>/img/aevb_logo.jpg" title="AEVB" id="logo_menor">
-		Cliqui aqui para deslogar: <a href="<?= base_url('index.php/login/logout') ?>">Deslogar</a></p>
+
+      <ul id="menu">
+        <li></li>
 
   	</div>
+    Cliqui aqui para deslogar: <a href="<?= base_url('index.php/login/logout') ?>">Deslogar</a></p>
   </body>
 </html>
