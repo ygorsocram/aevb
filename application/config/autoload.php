@@ -64,7 +64,7 @@ $autoload['libraries'] = array('database','session','zip');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url');
+$autoload['helper'] = array('url','funcoes');
 
 
 /*
@@ -109,7 +109,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array();
+$autoload['model'] = array('m_pessoa');
 
 
 /* End of file autoload.php */

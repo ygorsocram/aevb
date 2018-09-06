@@ -38,6 +38,22 @@ body {
   display: flex;
 }
 
+
+a#botao-novo {
+  margin-left: 1060px;
+  margin-top: -30px;
+}
+
+div#tabela {
+  padding-top: 15px;
+  padding-bottom: 1px;
+  background-color: #ffffff;
+}
+
+ol#faixa-principal {
+  background-color: #ffffff;
+}
+
 #wrapper #content-wrapper {
   overflow-x: hidden;
   width: 100%;

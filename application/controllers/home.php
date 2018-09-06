@@ -11,5 +11,6 @@ class Home extends MY_Controller {
 	{
 		$this->load->view('cabecalhos/v_cabecalho_padrao');
 		$this->load->view('v_home');
+		$this->load->view('rodapes/v_rodape_padrao');
 	}
 }
