@@ -4,7 +4,6 @@ class Login extends CI_Controller {
 
 	function __construct(){
 			parent::__construct();
-	$this->load->view("v_cabecalho");
 	$this->load->model('m_login');
 	}
 

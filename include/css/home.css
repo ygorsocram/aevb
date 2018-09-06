@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+img#logo_maior {
+  width: 840px;
+  height: 150px;
+  top: 50%;
+  left: 50%;
+  margin-top: -43px;
+  margin-left: 250px;
+  margin-bottom: -30px;
+}
+
+ul {
+  width: 900px;
+  margin: 0 auto;
+  padding: 50px;
+  overflow: hidden;
+  list-style: none;
+}
+
+ul#viuva {
+  margin-bottom: -100px;
+}
+
+li {
+  float: left;
+  width: 190px;
+  height: 190px;
+  margin: 10px;
+  border: 5px solid #ffffff;
+  background-color: #ffffff;
+  box-shadow: 1px 1px 3px rgba(0,0,0,.4);
+  -webkit-transition: all .4s ease-in;
+}
+
+li span {
+  opacity: 0;
+  color: #ffffff;
+  text-shadow: 1px #000000;
+  background-color: rgba(0,0,0,.3);
+  font-size: 9pt;
+  line-height: 370px;
+  padding: 5px;
+}
+
+li:hover {
+  -webkit-transform: scale(0.8);
+
+}
+
+li#viuvas {
+  background: url('../_imagens/galeria-02.jpg') no-repeat;
+  background-position: 50% 50%;
+  background-size: 400px 400px;
+  background-color:  #ffffff;
+  margin-left: 220px;
+}
+
+li#conjugues {
+  background: url('../_imagens/galeria-03.jpg') no-repeat;
+  background-position: 50% 50%;
+  background-size: 400px 400px;
+  background-color:  #ffffff;
+  margin-left: 10px;
+}
+
+li#companheiros {
+  background: url('../_imagens/galeria-04.jpg') no-repeat;
+  background-position: 50% 50%;
+  background-size: 400px 400px;
+  background-color:  #ffffff;
+}
+
+
+li#medicamentos {
+  background: url('../_imagens/galeria-05.jpg') no-repeat;
+  background-position: 50% 50%;
+  background-size: 400px 400px;
+  background-color:  #ffffff;
+}
+
+
+li#intituicoes {
+  background: url('../_imagens/galeria-06.jpg') no-repeat;
+  background-position: 50% 50%;
+  background-size: 400px 400px;
+  background-color:  #ffffff;
+}
+
+
+li#filhos {
+  background: url('../_imagens/galeria-06.jpg') no-repeat;
+  background-position: 50% 50%;
+  background-size: 400px 400px;
+  background-color:  #ffffff;
+}
+
+
+li#usuarios {
+  background: url('../_imagens/galeria-06.jpg') no-repeat;
+  background-position: 50% 50%;
+  background-size: 400px 400px;
+  background-color:  #ffffff;
+}
