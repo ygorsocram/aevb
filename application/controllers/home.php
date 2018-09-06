@@ -9,6 +9,7 @@ class Home extends MY_Controller {
 	//a tela de login. :)
 	public function index()
 	{
+		$this->load->view('cabecalhos/v_cabecalho_padrao');
 		$this->load->view('v_home');
 	}
 }
