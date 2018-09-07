@@ -4,56 +4,6 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-sb-admin/blob/master/LICENSE)
  */
 
- img#logo_login {
-   width: 150px;
-   height: 150px;
-   top: 50%;
-   left: 50%;
-   margin-top: 50px;
-   margin-left: 480px;
-   margin-bottom: -40px;
- }
-
- body {
-     background: url("../img/bk1.jpg") no-repeat center top fixed;
-
-     -webkit-background-size: cover;
-     -moz-background-size: cover;
-     -o-background-size: cover;
-     background-size: cover;
- }
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  height: 100%;
-}
-
-#wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-
-a#botao-novo {
-  margin-left: 1060px;
-  margin-top: -30px;
-}
-
-div#tabela {
-  padding-top: 15px;
-  padding-bottom: 1px;
-  background-color: #ffffff;
-}
-
-ol#faixa-principal {
-  background-color: #ffffff;
-}
-
 #wrapper #content-wrapper {
   overflow-x: hidden;
   width: 100%;

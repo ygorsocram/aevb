@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+/*Geral*/
+body {
+    background: url("../img/bk1.jpg") no-repeat center top fixed;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+html {
+ position: relative;
+ min-height: 100%;
+}
+
+body {
+ height: 100%;
+}
+
+#wrapper {
+ display: -webkit-box;
+ display: -ms-flexbox;
+ display: flex;
+}
+
+/*login*/
+img#logo_login {
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  left: 50%;
+  margin-top: 50px;
+  margin-left: 480px;
+  margin-bottom: -40px;
+}
+
+/*Pessoas*/
+a#botao-novo {
+ margin-left: 1060px;
+ margin-top: -30px;
+}
+
+ol#faixa-principal {
+ background-color: #ffffff;
+}
+
+div#tabela {
+ padding-top: 15px;
+ padding-bottom: 1px;
+ background-color: #ffffff;
+}
+
+td#funcoes {
+  text-align: center;
+}
+
+td#funcoes span#alterar {
+  color: #218838;
+  cursor: pointer;
+}
+
+td#funcoes span#excluir {
+  color: #d52323;
+  cursor: pointer;
+  padding-left: 8px;
+}
