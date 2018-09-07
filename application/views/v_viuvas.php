@@ -27,9 +27,9 @@
       								</td>
       								<td class="linha_destaque" data-url="<?= base_url("viuvas/editar/{$viuva->id_pessoa}")?>"><?= $viuva->nome; ?></td>
       								<td class="linha_destaque" data-url="<?= base_url("viuvas/editar/{$viuva->id_pessoa}")?>"><?= $viuva->telefone; ?></td>
-      								<td width="10px" align="center">
-      									<span id="alterar" style="color: #218838; cursor: pointer;" <i class="fa fa-user-plus"></i></span>
-                        <span id="excluir" style="color: #d52323; cursor: pointer;" <i class="fa fa-user-times"></i></span>
+      								<td width="10px" id="funcoes">
+      									<span id="alterar" <i class="fa fa-edit" title="Alterar"></i></span>
+                        <span id="excluir" <i class="fa fa-user-times" title="Excluir"></i></span>
       								</td>
       							</tr>
       							<?php endforeach; ?>
