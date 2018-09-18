@@ -38,7 +38,7 @@ img#logo_login {
 
 /*Pessoas*/
 a#botao-novo {
- margin-left: 1060px;
+ margin-left: 1000px;
  margin-top: -30px;
 }
 
@@ -65,4 +65,256 @@ td#funcoes span#excluir {
   color: #d52323;
   cursor: pointer;
   padding-left: 8px;
+}
+
+/*Info Viuva*/
+
+div#info_viuva {
+  background-color: #ffffff;
+}
+
+.form-group {
+  margin: 5px;
+  padding-top: 5px;
+}
+
+div#div_foto {
+  margin-right: -300px;
+}
+
+
+.box-typical{
+    -webkit-border-radius:4px;
+    border-radius:4px;
+    background:#fff;
+    border:solid 1px #d8e2e7;
+    margin:0 0 20px
+}
+.box-typical .box-typical-header{
+    display:table;
+    width:100%
+}
+.box-typical .box-typical-header.box-typical-header-bordered{
+    border-bottom:solid 1px #d8e2e7
+}
+.box-typical .box-typical-header .tbl-cell{
+    vertical-align:middle;
+    padding:15px
+}
+.box-typical .box-typical-header .tbl-cell.tbl-cell-title{
+    padding-right:0
+}
+.box-typical .box-typical-header .tbl-cell.tbl-cell-title h1,.box-typical .box-typical-header .tbl-cell.tbl-cell-title h2,.box-typical .box-typical-header .tbl-cell.tbl-cell-title h3,.box-typical .box-typical-header .tbl-cell.tbl-cell-title h4,.box-typical .box-typical-header .tbl-cell.tbl-cell-title h5,.box-typical .box-typical-header .tbl-cell.tbl-cell-title h6{
+    margin:0;
+    font-size:1rem;
+    font-weight:600;
+    line-height:1.4;
+    padding:1px 0
+}
+.box-typical .box-typical-header .tbl-cell.tbl-cell-actions{
+    text-align:right;
+    white-space:nowrap;
+    padding-top:18px;
+    padding-left:0
+}
+.box-typical .box-typical-header .tbl-cell.tbl-cell-action-bordered{
+    border-left:solid 1px #d8e2e7;
+    text-align:center;
+    width:54px;
+    padding-top:17px
+}
+.box-typical .box-typical-header .tbl-cell.tbl-cell-action-bordered .action-btn{
+    margin:0
+}
+.box-typical .box-typical-header .action-btn{
+    display:inline-block;
+    vertical-align:top;
+    color:#adb7be;
+    border:none;
+    background:0 0;
+    font-size:1rem;
+    margin:0 0 0 10px;
+    line-height:18px
+}
+.box-typical .box-typical-header .action-btn .font-icon{
+    vertical-align:middle
+}
+.box-typical .box-typical-header .action-btn .font-icon.font-icon-minus{
+    position:relative;
+    top:1px
+}
+.box-typical .box-typical-header .action-btn:hover{
+    color:#00a8ff
+}
+.box-typical .box-typical-header-sm{
+    padding:12px 15px;
+    font-weight:600;
+    position:relative
+}
+.box-typical .box-typical-header-sm.bordered{
+    border-bottom:solid 1px #d8e2e7
+}
+.box-typical .box-typical-header-sm .slider-arrs{
+    position:absolute;
+    right:12px;
+    top:50%;
+    margin-top:-12px;
+    zoom:1
+}
+.box-typical .box-typical-header-sm .slider-arrs:after,.box-typical .box-typical-header-sm .slider-arrs:before{
+    content:" ";
+    display:table
+}
+.box-typical .box-typical-header-sm .slider-arrs:after{
+    clear:both
+}
+.box-typical .box-typical-header-sm .slider-arrs button{
+    float:left;
+    font-size:1rem;
+    margin:0 0 0 15px;
+    border:none;
+    background:0 0;
+    color:#c5d6de;
+    height:24px;
+    line-height:24px;
+    padding:0
+}
+.box-typical .box-typical-header-sm .slider-arrs button:hover{
+    color:#00a8ff
+}
+.box-typical .box-typical-header-sm .slider-arrs button .font-icon{
+    vertical-align:middle;
+    line-height:inherit
+}
+.box-typical .box-typical-footer{
+    background:#fbfcfd;
+    padding:12px 15px;
+    border-top:solid 1px #d8e2e7
+}
+.box-typical .box-typical-footer:last-child{
+    -webkit-border-radius:0 0 4px 4px;
+    border-radius:0 0 4px 4px
+}
+.box-typical .box-typical-footer .tbl-cell{
+    vertical-align:middle
+}
+.box-typical .box-typical-footer .tbl-cell-action{
+    white-space:nowrap;
+    width:20px;
+    padding-left:15px
+}
+.box-typical .box-typical-footer .btn-icon{
+    border:none;
+    background:0 0;
+    color:#919fa9;
+    margin:0 12px 0 0;
+    position:relative;
+    top:2px
+}
+.box-typical .box-typical-footer .btn-icon:hover{
+    color:#00a8ff
+}
+.box-typical .box-typical-section{
+    border-top:solid 1px #d8e2e7;
+    padding:15px
+}
+.box-typical .box-typical-section:first-child{
+    border-top:none
+}
+.box-typical .box-typical-section .box-typical-header-sm{
+    padding:5px 0 15px
+}
+.box-typical.box-typical-padding{
+    padding:20px 15px
+}
+.box-typical.box-typical-max-280 .box-typical-header{
+    border-bottom:solid 1px #d8e2e7;
+    margin-bottom:-1px
+}
+.box-typical.box-typical-max-280 .box-typical-body{
+    overflow:auto;
+    height:280px
+}
+.box-typical.box-typical-dashboard{
+    margin:0 0 30px;
+    overflow:hidden
+}
+.box-typical.box-typical-dashboard .box-typical-header{
+    border-bottom:solid 1px #d8e2e7
+}
+.box-typical.box-typical-dashboard .box-typical-body{
+    overflow:auto;
+    height:264px
+}
+.box-typical.box-typical-dashboard .box-typical-body .tbl-typical th{
+    border-top:none
+}
+.box-typical.box-typical-full-screen{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:100;
+    border:none;
+    -webkit-border-radius:0;
+    border-radius:0;
+    margin:0 0 20px
+}
+.box-typical.box-typical-full-screen .box-typical-header{
+    position:relative;
+    z-index:110
+}
+.box-typical.box-typical-full-screen .box-typical-header .tbl-cell.tbl-cell-title h1,.box-typical.box-typical-full-screen .box-typical-header .tbl-cell.tbl-cell-title h2,.box-typical.box-typical-full-screen .box-typical-header .tbl-cell.tbl-cell-title h3,.box-typical.box-typical-full-screen .box-typical-header .tbl-cell.tbl-cell-title h4,.box-typical.box-typical-full-screen .box-typical-header .tbl-cell.tbl-cell-title h5,.box-typical.box-typical-full-screen .box-typical-header .tbl-cell.tbl-cell-title h6{
+    font-size:1.5rem
+}
+.box-typical.box-typical-full-screen .box-typical-header .action-btn .font-icon-expand:before{
+    content:"\73"
+}
+.box-typical.box-typical-full-screen .tbl-typical td,.box-typical.box-typical-full-screen .tbl-typical th{
+    font-size:.9375rem
+}
+.box-typical.box-typical-collapsed{
+    height:auto
+}
+.box-typical.box-typical-collapsed .box-typical-header{
+    border-bottom-color:transparent
+}
+.box-typical.box-typical-collapsed .box-typical-body{
+    display:none
+}
+.box-typical.box-typical-collapsed .box-typical-header .action-btn .font-icon-minus:before{
+    content:"\e07a"
+}
+.box-typical .panel-heading{
+    padding:17px 20px
+}
+.box-typical .panel-title{
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    margin:0;
+    font-size:1rem;
+    font-weight:600;
+    line-height:1.4;
+    padding:0
+}
+
+.box-panel .box-typical-header{
+    border-bottom:1px solid #d8e2e7
+}
+
+.comment-row-item .comment-row-item-header .tbl-cell{
+    vertical-align:top
+}
+.comment-row-item .comment-row-item-header .tbl-cell-name{
+    font-weight:600
+}
+.comment-row-item .comment-row-item-header .tbl-cell-date{
+    text-align:right;
+    width:30px;
+    padding-left:10px;
+    white-space:nowrap;
+    font-size:.875rem;
+    color:#919fa9
 }
