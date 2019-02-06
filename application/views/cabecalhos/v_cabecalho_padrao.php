@@ -70,32 +70,14 @@
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="<?= base_url(); ?>">
-            <i class="fa fa-male"></i>
-            <span>Conjugues</span>
-          </a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="<?= base_url(); ?>">
-            <i class="fa fa-sitemap"></i>
-            <span>Filhos</span>
-          </a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="<?= base_url(); ?>">
-            <i class="fa fa-street-view"></i>
-            <span>Acompanhantes</span>
-          </a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="<?= base_url(); ?>">
             <i class="fa fa-home"></i>
             <span>Instituições</span>
           </a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="<?= base_url(); ?>">
-            <i class="fa fa-heartbeat"></i>
-            <span>Medicamentos</span>
+            <i class="fa fa-chart"></i>
+            <span>Relatórios</span>
           </a>
         </li>
         <li class="nav-item active">
