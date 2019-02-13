@@ -1,5 +1,5 @@
       <li class="breadcrumb-item active">Viuvas</li>
-        <a id="botao-novo" class="btn btn-success btn-sm" href="<?= base_url('viuvas/cadastrar')?>"><i class="font-icon fa fa-plus"></i> Novo</a>
+        <a id="botao-novo" class="btn btn-success btn-sm" href="<?= base_url('viuvas/nova_viuva')?>"><i class="font-icon fa fa-plus"></i> Novo</a>
     </ol>
 
     <div class="page-content" id="tabela">
@@ -11,25 +11,21 @@
       <table id="viuvas" class="table table-bordered" cellspacing="0" width="100%">
       							<thead>
       							<tr>
-      								<th>CPF</th>
       								<th>Nome</th>
       								<th>Telefone</th>
+      								<th>Onde Congrega</th>
       								<th>Funções</th>
       							</tr>
       							</thead>
       							<tbody>
       							<?php foreach($viuvas -> result() as $viuva): ?>
-      							<tr id="viuvas-<?= $viuva->id_pessoa; ?>" <?=($viuva->status != "A") ? 'class="table-danger"':''?> data-nome="<?= $viuva->nome; ?> "data-id_pessoa="<?= $viuva->id_pessoa; ?>">
-      								<td>
-      								<?php
-      									echo mask("###.###.###-##", $viuva->cpf);
-      								 ?>
-      								</td>
-      								<td class="linha_destaque" data-url="<?= base_url("viuvas/editar/{$viuva->id_pessoa}")?>"><?= $viuva->nome; ?></td>
-      								<td class="linha_destaque" data-url="<?= base_url("viuvas/editar/{$viuva->id_pessoa}")?>"><?= $viuva->telefone; ?></td>
+      							<tr id="viuvas-<?= $viuva->id_viuva; ?>" <?=($viuva->status != "A") ? 'class="table-danger"':''?> data-nome="<?= $viuva->nome; ?> "data-id_viuva="<?= $viuva->id_viuva; ?>">
+      								<td class="linha_destaque" data-url="<?= base_url("viuvas/editar_viuva?id_viuva={$viuva->id_viuva}")?>"><?= $viuva->nome; ?></td>
+      								<td class="linha_destaque" data-url="<?= base_url("viuvas/editar_viuva?id_viuva={$viuva->id_viuva}")?>"><?= $viuva->telefone; ?></td>
+      								<td class="linha_destaque" data-url="<?= base_url("viuvas/editar_viuva?id_viuva={$viuva->id_viuva}")?>"><?= $viuva->nome_instituicao; ?></td>
       								<td width="10px" id="funcoes">
-      									<span id="alterar" <i class="fa fa-edit" title="Alterar"></i></span>
-                        <span id="excluir" <i class="fa fa-user-times" title="Excluir"></i></span>
+									<a href="<?= base_url("viuvas/editar_viuva?id_viuva={$viuva->id_viuva}")?>"><i class="fa fa-edit" style="font-size:20px; margin-left: 10px;" title="Alterar"></i></a>
+      								<a href="<?= base_url("viuvas/excluir_viuva?id_viuva={$viuva->id_viuva}")?>"><i class="fa fa-user-times" style="font-size:20px; margin-left: 10px;" title="Excluir"></i></a>
       								</td>
       							</tr>
       							<?php endforeach; ?>
@@ -75,10 +71,10 @@ responsive: true
 
 $("#viuvas").on("click", "#excluir", function () {
 var nome = $(this).parent().parent().data("nome");
-var id_pessoa = $(this).parent().parent().data("id_pessoa");
+var id_viuva = $(this).parent().parent().data("id_viuva");
 swal({
   title: "Deseja realmente excluir?",
-  text: "Viuva: " + id_pessoa + " - " + nome + ".",
+  text: "Viuva: " + id_viuva + " - " + nome + ".",
   type: "warning",
   showCancelButton: true,
   cancelButtonClass: "btn-default",
@@ -88,7 +84,7 @@ swal({
 },
 function(){
   $.post("<?= base_url('pessoas/excluir_viuva'); ?>",
-  {id_pessoa: id_pessoa},
+  {id_viuva: id_viuva},
   function(data){
     if (data == 1) {
       swal({
@@ -98,7 +94,7 @@ function(){
         confirmButtonClass: "btn-success"
       },
       function(){
-        $('#viuvas-'+id_pessoa).remove();
+        $('#viuvas-'+id_viuva).remove();
       });
     } else {
       swal({
@@ -108,7 +104,7 @@ function(){
         confirmButtonClass: "btn-danger"
       },
       function(){
-        $('#viuvas-'+id_pessoa).addClass("table-danger");
+        $('#viuvas-'+id_viuva).addClass("table-danger");
       });
     }
   });
