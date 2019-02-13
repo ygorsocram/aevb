@@ -44,7 +44,7 @@
       <!-- Navbar -->
       <ul class="navbar-nav ml-auto ml-md-0">
         <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="<?= base_url('index.php/login/logout') ?>" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sair
+          <a class="nav-link dropdown-toggle" href="<?= base_url('login/logout') ?>" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sair
             <i class="fas fa-user-circle fa-fw"></i>
           </a>
         </li>
@@ -69,12 +69,12 @@
           </a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="<?= base_url(); ?>">
+          <a class="nav-link" href="<?= base_url('instituicoes'); ?>">
             <i class="fa fa-home"></i>
             <span>Instituições</span>
           </a>
         </li>
-        <li class="nav-item active">
+        <!--li class="nav-item active">
           <a class="nav-link" href="<?= base_url(); ?>">
             <i class="fa fa-chart"></i>
             <span>Relatórios</span>
@@ -85,7 +85,7 @@
             <i class="fa fa-lock"></i>
             <span>Usuarios</span>
           </a>
-        </li>
+        </li-->
       </ul>
       <div id="content-wrapper">
 
