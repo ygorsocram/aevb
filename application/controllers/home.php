@@ -2,15 +2,19 @@
 
 class Home extends MY_Controller {
 
-	//Como este controller estende o MY_Controller, que é onde está a verificação de login e senha, então aqui você não precisa
-	//fazer nenhuma verifição se o usuário está logado.
-	//Lembre-se: os controllers que você deseja proteger, devem estender o MY_Controller.
-	//O controller Login não pode estender o MY_Controller, caso contrário o código entra em loop, e também não tem sentido proteger
-	//a tela de login. :)
+	function __construct(){
+			parent::__construct();
+	$this->load->model('m_viuva');
+	}
+	
 	public function index()
 	{
+		$data_inicio = date("Y-m-01");
+		$data_fim = date("Y-m-t");
+		
+		$variaveis['viuvas'] = $this->m_viuva->data_nascimento($data_inicio, $data_fim);
 		$this->load->view('cabecalhos/v_cabecalho_padrao');
-		$this->load->view('v_home');
+		$this->load->view('v_home', $variaveis);
 		$this->load->view('rodapes/v_rodape_padrao');
 	}
 }

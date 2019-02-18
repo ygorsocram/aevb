@@ -41,4 +41,8 @@ class M_viuva extends CI_Model {
 			$this->db->where('id_viuva', $id_viuva);
 			$this->db->delete('viuvas');
 	}
+	
+	public function data_nascimento($data_inicio,$data_fim){
+				return $this->db->query("SELECT v.id_viuva,i.nome as nome_instituicao, v.nome, v.telefone, v.data_nascimento, v.status FROM viuvas v left join instituicoes i on v.id_instituicao = i.id_instituicao where data_nascimento between '$data_inicio' and '$data_fim'");
+		}
 }

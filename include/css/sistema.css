@@ -318,3 +318,10 @@ div#div_foto {
     font-size:.875rem;
     color:#919fa9
 }
+
+/*Info_viuva botão*/
+
+button#insere_foto{
+	float: right;
+	margin-right:10px;
+}

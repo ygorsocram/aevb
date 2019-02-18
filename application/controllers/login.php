@@ -41,10 +41,14 @@ class Login extends CI_Controller {
 	 * Aqui eu destruo a variável logado na sessão e redireciono para a url base. Como esta variável não existe mais, o usuário
 	 * será direcionado novamente para a tela de login.
 	 */
-	public function logout(){
-		$this->session->unset_userdata("logado");
-		redirect(base_url());
 
+		public function logout(){
+		$this->session->unset_userdata([
+			"logado"
+		]);
+
+		redirect(base_url('login/'));
+
+		$this->session->sess_destroy();
 	}
-
 }

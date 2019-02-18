@@ -10,6 +10,11 @@
                             <strong class="titulos">
                                 Informações Básicas
                             </strong>
+							
+							<?php if($tipo_tela=='editar'):?>
+								<button id="insere_foto" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-backdrop="static" data-target="#cadastrar_" title="Inserir foto" id="step2"><i class="fa fa-photo"></i> Foto</button>
+							<?php endif ?>
+							
                         </div>
                     </header>
 					
