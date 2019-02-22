@@ -370,16 +370,44 @@
 						</div>
 					</div>
                     <div class="box-typical-body" id="nome_filhos">
+                        <?php 
+                            if(isset($filhos)):
+                                $i=0; 
+                                foreach($filhos->result() as $filho):
+                                $i++;
+                        ?>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <fieldset class="form-group">
+                                        <label class="form-label" for="nome_filhos">Nome do filho 
+                                        <?php if($i == 1): ?>
+                                            <button class="btn btn-primary" type="button" id="adicionar_filho">Adicionar</button>
+                                        <?php else: ?>
+                                            <button class="btn btn-danger excluir_filho" type="button">Excluir</button>
+                                        <?php endif;?>
+                                        </label>
+                                        <input name="nome_filhos[]" type="text" class="form-control" value="<?= $filho->nome; ?>" />
+                                    </fieldset>
+                                </div>
+                            </div>
+                        <?php 
+                            endforeach; 
+                            else: 
+                        ?>
+                        
                         <div class="row">
                             <div class="col-lg-4">
                                 <fieldset class="form-group">
-                                    <label class="form-label" for="nome_filhos">Nome do filho <button class="btn btn-primary" type="button" id="adicionar_filho">Adicionar</button></label>
-                                    <input name="nome_filhos[]" type="text" class="form-control"/>
+                                    <label class="form-label" for="nome_filhos">Nome do filho
+                                        <button class="btn btn-primary" type="button" id="adicionar_filho">Adicionar</button>
+                                    </label>
+                                    <input name="nome_filhos[]" type="text" class="form-control" />
                                 </fieldset>
                             </div>
-						</div>
-					</div>
-					
+                        </div>
+                        
+                        <?php endif; ?>
+					</div>					
 					
                     <header class="box-typical-header">
                         <div class="tbl-cell tbl-cell-title">
@@ -440,7 +468,7 @@
                         <div class="col-lg-6">
                             <div class="col-lg-12">
                                 <fieldset class="form-group">
-                                    <?php $img = ($foto == NULL) ? "/aevb_logo.png" : "/viuvas/{$foto}"; ?>
+                                    <?php $img = ($foto == NULL) ? "/viuva.jpg" : "/viuvas/{$foto}"; ?>
                                     <img id="preview" src="<?= base_url("include/img/") . $img; ?>" alt="foto viuva" width="200px" height="150px" />
                                 </fieldset>
                                 <?= ($foto == NULL) ? "":"<button type='button' class='btn btn-inline btn-danger' id='excluir_foto'>Excluir foto</button>";?>
@@ -498,7 +526,11 @@
     
     $('#adicionar_filho').click(function(){
         var nome_filhos = $('#nome_filhos').val();
-        var linha = '<div class="row"><div class="col-lg-4"><fieldset class="form-group"><label class="form-label" for="nome_filhos">Nome do filho</label><input name="nome_filhos[]" type="text" class="form-control"/></fieldset></div></div>';
+        var linha = '<div class="row"><div class="col-lg-4"><fieldset class="form-group"><label class="form-label" for="nome_filhos">Nome do filho <button class="btn btn-danger excluir_filho" type="button">Excluir</button></label><input name="nome_filhos[]" type="text" class="form-control"/></fieldset></div></div>';
         $('#nome_filhos').append(linha);
+    });
+    
+    $(document).on('click', ".excluir_filho", function() {
+        $(this).parent().parent().parent().parent().remove();
     });
 </script>

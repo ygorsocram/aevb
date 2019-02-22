@@ -109,11 +109,8 @@ class Viuvas extends MY_Controller {
 			'status' => 'A'];
 			
 		$id_viuva = $this->m_viuva->cadastrar($dados);
-        
-        foreach($nome_filhos as $filho){
-            $data = ['nome' => $filho, 'id_viuva' => $id_viuva];
-        }
-		$this->m_viuva->add_filho($data);
+
+        $this->m_viuva->add_filho($nome_filhos, $id_viuva);
 		redirect('viuvas/');
 	}
 	
@@ -165,6 +162,8 @@ class Viuvas extends MY_Controller {
 		$variaveis['instituicoes'] = $this->m_instituicao->instituicoes();
 		$variaveis['cidades'] = $this->m_viuva->cidades();
 		$variaveis['estados_civis'] = $this->m_viuva->estados_civis();
+        
+		$variaveis['filhos'] = $this->m_viuva->filhos($id_viuva);
 		
 		$this->load->view('cabecalhos/v_cabecalho_padrao');
 		$this->load->view('v_info_viuva', $variaveis);
@@ -255,11 +254,8 @@ class Viuvas extends MY_Controller {
 			'status' => 'A'];
 			
 		$this->m_viuva->editar_viuva($dados,$id_viuva);
-        
-        foreach($nome_filhos as $filho){
-            $this->m_viuva->add_filho($filho, $id_viuva);
-        }
-			
+
+		$this->m_viuva->add_filho($nome_filhos, $id_viuva);
 		redirect('viuvas');
 	}
 	

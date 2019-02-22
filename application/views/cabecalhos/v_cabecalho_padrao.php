@@ -23,7 +23,47 @@
 	<link href="<?= base_url('include/css/sb-admin.css') ?>" rel="stylesheet">
   <link href="<?= base_url('include/css/sistema.css') ?>" rel="stylesheet">
 
+    <style>
+        .sweet-alert{
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.21);
+        }
+        input .uppercase{
+            text-transform: uppercase;
+        }
+        .destaque{ /*Função para destacar linha da tabela quando o mouse passar por ela*/
+            color:#2196f3; /*Coloca uma cor azul nos textos.*/
+            cursor:pointer; /*Mouse com icone de Hand.*/
+        }
+        .widget-simple-sm{
+            cursor:pointer; /*Mouse com icone de Hand.*/
+        }
+        
+        .flex-container { 
+            list-style: none;           
+            -ms-box-orient: horizontal;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -moz-flex;
+            display: -webkit-flex;
+            display: flex;
+            float: left;
+        }
+        .center { 
+            -webkit-align-items: center; 
+            align-items: center; }
+         
+         html{
+                 list-style: none;
+         }
+         
+        .expira-cert {
+            margin: -.40rem;
+            background-color:#FF748F
+        }
 
+    </style>
+	
   </head>
 
   <body id="page-top">

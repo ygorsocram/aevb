@@ -16,7 +16,7 @@ class M_viuva extends CI_Model {
 		}
 		
 	public function estados_civis(){
-				return $this->db->query("SELECT * FROM estados_civis order by descricao asc");
+				return $this->db->query("SELECT * FROM estados_civis order by descricao desc");
 		}
 		
 	public function cadastrar($data)
@@ -57,7 +57,7 @@ class M_viuva extends CI_Model {
             ->update('viuvas', ['foto' => $foto]);
     }
     
-    public function add_filho($filho){
+    public function add_filho($filho,$id_viuva){
         $this->db
             ->where('id_viuva', $id_viuva)
             ->delete('filhos');
