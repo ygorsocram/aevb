@@ -440,7 +440,7 @@
                         <div class="col-lg-6">
                             <div class="col-lg-12">
                                 <fieldset class="form-group">
-                                    <?php $img = ($foto == NULL) ? "/viuva.jpg" : "/viuvas/{$foto}"; ?>
+                                    <?php $img = ($foto == NULL) ? "/aevb_logo.png" : "/viuvas/{$foto}"; ?>
                                     <img id="preview" src="<?= base_url("include/img/") . $img; ?>" alt="foto viuva" width="200px" height="150px" />
                                 </fieldset>
                                 <?= ($foto == NULL) ? "":"<button type='button' class='btn btn-inline btn-danger' id='excluir_foto'>Excluir foto</button>";?>
