@@ -67,7 +67,6 @@
                                 <fieldset class="form-group">
                                     <label class="form-label" for="estado_civil">Estado Civil *</label>
                                     <select class="form-control proximo_campo uppercase" id="estado_civil" name="estado_civil" required>
-									<option value="" selected>Selecione</option>
 									 <?php foreach($estados_civis -> result() as $estados_civis): ?>
 										<?php if(@$estado_civil == $estados_civis->estado_civil):?>
 											<option value="<?= $estados_civis->estado_civil; ?>" selected> <?= $estados_civis->descricao; ?></option>

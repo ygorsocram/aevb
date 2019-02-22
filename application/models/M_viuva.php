@@ -57,11 +57,22 @@ class M_viuva extends CI_Model {
             ->update('viuvas', ['foto' => $foto]);
     }
     
-    public function add_filho($filho,$id_viuva){
+	public function add_filho($nome_filhos, $id_viuva){
         $this->db
             ->where('id_viuva', $id_viuva)
             ->delete('filhos');
-        $this->db
-            ->insert('filhos', $filho);
+            
+        foreach($nome_filhos as $filho){
+            $this->db
+                ->insert('filhos', ['nome' => $filho, 'id_viuva' => $id_viuva]);
+        }
+    }
+	
+    public function filhos($id_viuva){
+        return $this->db
+            ->select('nome')
+            ->from('filhos')
+            ->where('id_viuva', $id_viuva)
+            ->get();
     }
 }
