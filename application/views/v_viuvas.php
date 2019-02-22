@@ -20,12 +20,12 @@
       							<tbody>
       							<?php foreach($viuvas -> result() as $viuva): ?>
       							<tr id="viuvas-<?= $viuva->id_viuva; ?>" <?=($viuva->status != "A") ? 'class="table-danger"':''?> data-nome="<?= $viuva->nome; ?> "data-id_viuva="<?= $viuva->id_viuva; ?>">
-      								<td class="linha_destaque" data-url="<?= base_url("viuvas/editar_viuva?id_viuva={$viuva->id_viuva}")?>"><?= $viuva->nome; ?></td>
-      								<td class="linha_destaque" data-url="<?= base_url("viuvas/editar_viuva?id_viuva={$viuva->id_viuva}")?>"><?= $viuva->telefone; ?></td>
-      								<td class="linha_destaque" data-url="<?= base_url("viuvas/editar_viuva?id_viuva={$viuva->id_viuva}")?>"><?= $viuva->nome_instituicao; ?></td>
+      								<td class="linha_destaque" data-url="<?= base_url("viuvas/editar_viuva/{$viuva->id_viuva}")?>"><?= $viuva->nome; ?></td>
+      								<td class="linha_destaque" data-url="<?= base_url("viuvas/editar_viuva/{$viuva->id_viuva}")?>"><?= $viuva->telefone; ?></td>
+      								<td class="linha_destaque" data-url="<?= base_url("viuvas/editar_viuva/{$viuva->id_viuva}")?>"><?= $viuva->nome_instituicao; ?></td>
       								<td width="10px" id="funcoes">
-									<a href="<?= base_url("viuvas/editar_viuva?id_viuva={$viuva->id_viuva}")?>"><i class="fa fa-edit" style="font-size:20px; margin-left: 10px;" title="Alterar"></i></a>
-      								<a href="<?= base_url("viuvas/excluir_viuva?id_viuva={$viuva->id_viuva}")?>"><i class="fa fa-user-times" style="font-size:20px; margin-left: 10px;" title="Excluir"></i></a>
+									<a href="<?= base_url("viuvas/editar_viuva/{$viuva->id_viuva}")?>"><i class="fa fa-edit" style="font-size:20px; margin-left: 10px;" title="Alterar"></i></a>
+      								<a href="<?= base_url("viuvas/excluir_viuva/{$viuva->id_viuva}")?>"><i class="fa fa-user-times" style="font-size:20px; margin-left: 10px;" title="Excluir"></i></a>
       								</td>
       							</tr>
       							<?php endforeach; ?>

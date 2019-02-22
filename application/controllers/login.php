@@ -17,8 +17,6 @@ class Login extends CI_Controller {
 		$email = $this->input->post("usuario");
 		$senha = sha1($this->input->post("senha"));
 
-		echo $email.$senha;
-
 		//Código sha1  da senha 123456 7c4a8d09ca3762af61e59520943dc26494f8941b
 		//O usuário no exemplo aqui será usuario@email.com.br
 		//Mas em um projeto real, você trará isto do banco de dados.
@@ -29,7 +27,7 @@ class Login extends CI_Controller {
 		$validador = $this->m_login->valida($email, $senha);
 
 		if ($validador == 1) {
-			$this->session->set_userdata("logado", 1);
+			$this->session->set_userdata(["logado" => 1]);
 			redirect(base_url());
 		} else {
 			//caso a senha/usuário estejam incorretos, então mando o usuário novamente para a tela de login com uma mensagem de erro.
@@ -42,13 +40,9 @@ class Login extends CI_Controller {
 	 * será direcionado novamente para a tela de login.
 	 */
 
-		public function logout(){
-		$this->session->unset_userdata([
-			"logado"
-		]);
+    public function logout(){
+		$this->session->sess_destroy();
 
 		redirect(base_url('login/'));
-
-		$this->session->sess_destroy();
 	}
 }

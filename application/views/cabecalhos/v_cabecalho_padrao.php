@@ -38,13 +38,12 @@
 
       <!-- Navbar Search -->
       <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-
       </form>
 
       <!-- Navbar -->
       <ul class="navbar-nav ml-auto ml-md-0">
         <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="<?= base_url('login/logout') ?>" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sair
+          <a class="nav-link dropdown-toggle" href="<?= base_url('login/logout/') ?>">Sair
             <i class="fas fa-user-circle fa-fw"></i>
           </a>
         </li>

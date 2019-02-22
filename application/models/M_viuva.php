@@ -21,12 +21,13 @@ class M_viuva extends CI_Model {
 		
 	public function cadastrar($data)
 	{
-			$this->db->insert('viuvas', $data);
+		$this->db->insert('viuvas', $data);
+        return $this->db->insert_id();
 	}
 	
 	public function viuva($id_viuva){
 				return $this->db->query("SELECT *
-                                 FROM   viuvas t WHERE  id_viuva = $id_viuva");
+                                 FROM viuvas t WHERE  id_viuva = $id_viuva");
 	}
 	
 	public function editar_viuva($dados,$id_viuva)
@@ -36,13 +37,31 @@ class M_viuva extends CI_Model {
 			$this->db->update('viuvas',$dados);
 	}
 
-	public function excluir_viuva($id_viuva)
-	{
-			$this->db->where('id_viuva', $id_viuva);
-			$this->db->delete('viuvas');
+	public function excluir_viuva($id_viuva){
+		$this->db
+            ->where('id_viuva', $id_viuva)
+            ->delete('viuvas');
+            
+        $this->db
+            ->where('id_viuva', $id_viuva)
+            ->delete('filhos');
 	}
 	
 	public function data_nascimento($data_inicio,$data_fim){
 				return $this->db->query("SELECT v.id_viuva,i.nome as nome_instituicao, v.nome, v.telefone, v.data_nascimento, v.status FROM viuvas v left join instituicoes i on v.id_instituicao = i.id_instituicao where data_nascimento between '$data_inicio' and '$data_fim'");
-		}
+	}  
+
+    public function altera_foto($foto, $id_viuva){
+        $this->db
+            ->where('id_viuva', $id_viuva)
+            ->update('viuvas', ['foto' => $foto]);
+    }
+    
+    public function add_filho($filho){
+        $this->db
+            ->where('id_viuva', $id_viuva)
+            ->delete('filhos');
+        $this->db
+            ->insert('filhos', $filho);
+    }
 }

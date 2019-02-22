@@ -26,7 +26,7 @@
   <body class="bg-dark">
 
     <div class="container">
-      <img src="<?= base_url('include');?>/img/aevb_logo.jpg" title="AEVB" id="logo_login">
+      <img src="<?= base_url('include');?>/img/aevb_logo.png" title="AEVB" id="logo_login">
       <div class="card card-login mx-auto mt-5">
         <div class="card-body">
           <form class="form-signin" role="form" method="post" action="<?= base_url('index.php/login/logar') ?>">

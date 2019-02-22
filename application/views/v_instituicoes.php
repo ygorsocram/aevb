@@ -19,11 +19,11 @@
       							<tbody>
       							<?php foreach($instituicoes -> result() as $instituicao): ?>
       							<tr id="instituicoes-<?= $instituicao->id_instituicao; ?>" <?=($instituicao->status != "A") ? 'class="table-danger"':''?> data-nome="<?= $instituicao->nome; ?> "data-id_instituicao="<?= $instituicao->id_instituicao; ?>">
-      								<td class="linha_destaque" data-url="<?= base_url("instituicoes/editar/{$instituicao->id_instituicao}")?>"><?= $instituicao->nome; ?></td>
-      								<td class="linha_destaque" data-url="<?= base_url("instituicoes/editar/{$instituicao->id_instituicao}")?>"><?= $instituicao->telefone; ?></td>
+      								<td class="linha_destaque" data-url="<?= base_url("instituicoes/editar_instituicao/{$instituicao->id_instituicao}")?>"><?= $instituicao->nome; ?></td>
+      								<td class="linha_destaque" data-url="<?= base_url("instituicoes/editar_instituicao/{$instituicao->id_instituicao}")?>"><?= $instituicao->telefone; ?></td>
       								<td width="10px" id="funcoes">
-									<a href="<?= base_url("instituicoes/editar_instituicao?id_instituicao={$instituicao->id_instituicao}")?>"><i class="fa fa-edit" style="font-size:20px; margin-left: 10px;" title="Alterar"></i></a>
-      								<a href="<?= base_url("instituicoes/excluir_instituicao?id_instituicao={$instituicao->id_instituicao}")?>"><i class="fa fa-user-times" style="font-size:20px; margin-left: 10px;" title="Excluir"></i></a>
+									<a href="<?= base_url("instituicoes/editar_instituicao/{$instituicao->id_instituicao}")?>"><i class="fa fa-edit" style="font-size:20px; margin-left: 10px;" title="Alterar"></i></a>
+      								<a href="<?= base_url("instituicoes/excluir_instituicao/{$instituicao->id_instituicao}")?>"><i class="fa fa-user-times" style="font-size:20px; margin-left: 10px;" title="Excluir"></i></a>
       								</td>
       							</tr>
       							<?php endforeach; ?>

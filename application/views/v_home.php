@@ -19,10 +19,10 @@
                   <tbody>
       							<?php foreach($viuvas -> result() as $viuva): ?>
       							<tr id="viuvas-<?= $viuva->id_viuva; ?>" <?=($viuva->status != "A") ? 'class="table-danger"':''?> data-nome="<?= $viuva->nome; ?> "data-id_viuva="<?= $viuva->id_viuva; ?>">
-      								<td class="linha_destaque" data-url="<?= base_url("viuvas/editar_viuva?id_viuva={$viuva->id_viuva}")?>"><?= $viuva->nome; ?></td>
-      								<td class="linha_destaque" data-url="<?= base_url("viuvas/editar_viuva?id_viuva={$viuva->id_viuva}")?>"><?= $viuva->telefone; ?></td>
-      								<td class="linha_destaque" data-url="<?= base_url("viuvas/editar_viuva?id_viuva={$viuva->id_viuva}")?>"><?= $viuva->data_nascimento; ?></td>
-									<td class="linha_destaque" data-url="<?= base_url("viuvas/editar_viuva?id_viuva={$viuva->id_viuva}")?>"><?= $viuva->nome_instituicao; ?></td>
+      								<td class="linha_destaque" data-url="<?= base_url("viuvas/editar_viuva/{$viuva->id_viuva}")?>"><?= $viuva->nome; ?></td>
+      								<td class="linha_destaque" data-url="<?= base_url("viuvas/editar_viuva/{$viuva->id_viuva}")?>"><?= $viuva->telefone; ?></td>
+      								<td class="linha_destaque" data-url="<?= base_url("viuvas/editar_viuva/{$viuva->id_viuva}")?>"><?= $viuva->data_nascimento; ?></td>
+									<td class="linha_destaque" data-url="<?= base_url("viuvas/editar_viuva/{$viuva->id_viuva}")?>"><?= $viuva->nome_instituicao; ?></td>
       							</tr>
       							<?php endforeach; ?>
                   </tbody>

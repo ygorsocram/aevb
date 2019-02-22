@@ -3,9 +3,9 @@
 class Viuvas extends MY_Controller {
 	
 	function __construct(){
-			parent::__construct();
-	$this->load->model('m_viuva');
-	$this->load->model('m_instituicao');
+		parent::__construct();
+        $this->load->model('m_viuva');
+        $this->load->model('m_instituicao');
 	}
 	
 	public function index(){
@@ -16,46 +16,7 @@ class Viuvas extends MY_Controller {
 	}
 
 	public function nova_viuva() {
-		$variaveis['tipo_tela'] = 'nova';
-		$variaveis['id_viuva'] = '';
-		$variaveis['nome'] = '';
-		$variaveis['telefone'] = '';
-		$variaveis['cpf'] = '';
-		$variaveis['rg'] = '';
-		$variaveis['orgao_exp'] = '';
-		$variaveis['naturalidade'] = '';
-		$variaveis['estado_civil'] = '';
-		$variaveis['data_nascimento'] = '';
-		$variaveis['id_instituicao'] = '';
-		$variaveis['ler'] = '';
-		$variaveis['diabetes'] = '';
-		$variaveis['medicacao'] = '';
-		$variaveis['observacao_medicacao'] = '';
-		$variaveis['renda'] = '';
-		$variaveis['origem_renda'] = '';
-		$variaveis['observacao_renda'] = '';
-		$variaveis['recebe_cesta'] = '';
-		$variaveis['origem_cesta'] = '';
-		$variaveis['ajuda_cesta'] = '';
-		$variaveis['observacao_cesta'] = '';
-		$variaveis['mora_aluguel'] = '';
-		$variaveis['paga_aluguel'] = '';
-		$variaveis['ajuda_aluguel'] = '';
-		$variaveis['observacao_aluguel'] = '';
-		$variaveis['cep'] = '';
-		$variaveis['logradouro'] = '';
-		$variaveis['numero_endereco'] = '';
-		$variaveis['complemento'] = '';
-		$variaveis['bairro'] = '';
-		$variaveis['id_cidade'] = '';
-		$variaveis['referencia'] = '';
-		$variaveis['nome_esposo'] = '';
-		$variaveis['mora_sozinha'] = '';
-		$variaveis['nome_acompanhante'] = '';
-		$variaveis['motivo_procura'] = '';
-		$variaveis['observacao_geral'] = '';
-		$variaveis['status'] = '';
-		
+		$variaveis['tipo_tela'] = 'nova';	
 		$variaveis['instituicoes'] = $this->m_instituicao->instituicoes();
 		$variaveis['cidades'] = $this->m_viuva->cidades();
 		$variaveis['estados_civis'] = $this->m_viuva->estados_civis();
@@ -66,9 +27,7 @@ class Viuvas extends MY_Controller {
 	}
 	
 	public function cadastrar() {
-		$id_viuva = $_GET['id_viuva'];
-		
-		$nome = $this->input->post('nome');
+        $nome = $this->input->post('nome');
 		$telefone = $this->input->post('telefone');
 		$cpf = $this->input->post('cpf');
 		$rg = $this->input->post('rg');
@@ -108,9 +67,10 @@ class Viuvas extends MY_Controller {
 		
 		$motivo_procura = $this->input->post('motivo_procura');
 		$observacao_geral = $this->input->post('observacao_geral');
+        
+		$nome_filhos = $this->input->post('nome_filhos');
 		
-		$dados= array(
-			'nome' => $nome,
+		$dados = ['nome' => $nome,
 			'telefone' => $telefone,
 			'cpf' => $cpf,
 			'rg' => $rg ,
@@ -146,22 +106,21 @@ class Viuvas extends MY_Controller {
 			'nome_acompanhante' => $nome_acompanhante,
 			'motivo_procura' => $motivo_procura,
 			'observacao_geral' => $observacao_geral,
-			'status' => 'A'
-			);
+			'status' => 'A'];
 			
-		$this->m_viuva->cadastrar($dados);
-		
-		$variaveis['viuvas'] = $this->m_viuva->viuvas();
-		$this->load->view('cabecalhos/v_cabecalho_padrao');
-		$this->load->view('v_viuvas', $variaveis);
-		$this->load->view('rodapes/v_rodape_padrao');
+		$id_viuva = $this->m_viuva->cadastrar($dados);
+        
+        foreach($nome_filhos as $filho){
+            $data = ['nome' => $filho, 'id_viuva' => $id_viuva];
+        }
+		$this->m_viuva->add_filho($data);
+		redirect('viuvas/');
 	}
 	
-	public function editar_viuva() {
-		$id_viuva = $_GET['id_viuva'];
-		
+	public function editar_viuva($id_viuva) {
 		$viuva = $this->m_viuva->viuva($id_viuva);
-		
+		if(!$viuva->num_rows() >= 1)
+			show_404();
 		$variaveis['tipo_tela'] = 'editar';
 		$variaveis['id_viuva'] = $id_viuva;
 		$variaveis['nome'] = $viuva->row()->nome;
@@ -201,6 +160,7 @@ class Viuvas extends MY_Controller {
 		$variaveis['motivo_procura'] = $viuva->row()->motivo_procura;
 		$variaveis['observacao_geral'] = $viuva->row()->observacao_geral;
 		$variaveis['status'] = $viuva->row()->status;
+		$variaveis['foto'] = $viuva->row()->foto;
 		
 		$variaveis['instituicoes'] = $this->m_instituicao->instituicoes();
 		$variaveis['cidades'] = $this->m_viuva->cidades();
@@ -208,12 +168,11 @@ class Viuvas extends MY_Controller {
 		
 		$this->load->view('cabecalhos/v_cabecalho_padrao');
 		$this->load->view('v_info_viuva', $variaveis);
-		$this->load->view('rodapes/v_rodape_padrao');		
+		$this->load->view('rodapes/v_rodape_padrao');
 	}
 	
-	public function salvar_edicao() {
-		$id_viuva = $_GET['id_viuva'];
-		
+	public function salvar_edicao(){
+		$id_viuva = $this->input->post('id_viuva');
 		$nome = $this->input->post('nome');
 		$telefone = $this->input->post('telefone');
 		$cpf = $this->input->post('cpf');
@@ -254,9 +213,10 @@ class Viuvas extends MY_Controller {
 		
 		$motivo_procura = $this->input->post('motivo_procura');
 		$observacao_geral = $this->input->post('observacao_geral');
+        
+		$nome_filhos = $this->input->post('nome_filhos');
 		
-		$dados= array(
-			'nome' => $nome,
+		$dados = ['nome' => $nome,
 			'telefone' => $telefone,
 			'cpf' => $cpf,
 			'rg' => $rg ,
@@ -292,25 +252,54 @@ class Viuvas extends MY_Controller {
 			'nome_acompanhante' => $nome_acompanhante,
 			'motivo_procura' => $motivo_procura,
 			'observacao_geral' => $observacao_geral,
-			'status' => 'A'
-			);
+			'status' => 'A'];
 			
 		$this->m_viuva->editar_viuva($dados,$id_viuva);
-		
-		$variaveis['viuvas'] = $this->m_viuva->viuvas();
-		$this->load->view('cabecalhos/v_cabecalho_padrao');
-		$this->load->view('v_viuvas', $variaveis);
-		$this->load->view('rodapes/v_rodape_padrao');
+        
+        foreach($nome_filhos as $filho){
+            $this->m_viuva->add_filho($filho, $id_viuva);
+        }
+			
+		redirect('viuvas');
 	}
 	
-	public function excluir_viuva(){
-		$id_viuva = $_GET['id_viuva'];
+	public function excluir_viuva($id_viuva) {
+		$viuva = $this->m_viuva->viuva($id_viuva);
+		if(!$viuva->num_rows() >= 1)
+			show_404();
 		
 		$this->m_viuva->excluir_viuva($id_viuva);
 			
-		$variaveis['viuvas'] = $this->m_viuva->viuvas();
-		$this->load->view('cabecalhos/v_cabecalho_padrao');
-		$this->load->view('v_viuvas', $variaveis);
-		$this->load->view('rodapes/v_rodape_padrao');
-		}
+		redirect('viuvas');
+	}
+    
+    public function cadastrar_foto(){   
+        $id_viuva = $this->input->post('id_viuva');
+		$config['upload_path'] = './include/img/viuvas/';
+		$config['allowed_types'] = 'jpg|png|jpeg';
+		$config['max_size']	= '0';
+		$config['max_width'] = '0';
+		$config['max_height'] = '0';
+		$config['file_name'] = $id_viuva;
+		$config['overwrite'] = TRUE;
+		
+		$this->load->library('upload', $config);
+		$field_name = "file";
+		if ( $this->upload->do_upload($field_name)){
+			$foto = $this->upload->data();
+            $this->m_viuva->altera_foto($foto['file_name'], $id_viuva);
+		}	
+		
+        redirect(base_url("viuvas/editar_viuva/{$id_viuva}"));
+	}
+	
+	public function excluir_foto(){
+        $id_viuva = $this->input->post('id_viuva');
+        $viuva = $this->m_viuva->viuva($id_viuva);
+        $foto = $viuva->row()->foto;
+
+        $this->m_viuva->altera_foto(NULL, $id_viuva);
+        unlink("./include/img/viuvas/{$foto}");
+        echo 1;
+	}
 }

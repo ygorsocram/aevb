@@ -3,8 +3,8 @@
 class Instituicoes extends MY_Controller {
 	
 	function __construct(){
-			parent::__construct();
-	$this->load->model('m_instituicao');
+		parent::__construct();
+        $this->load->model('m_instituicao');
 	}
 	
 	public function index(){
@@ -15,20 +15,7 @@ class Instituicoes extends MY_Controller {
 	}
 
 	public function nova_instituicao() {
-		$variaveis['tipo_tela'] = 'nova';
-		$variaveis['id_instituicao'] = '';
-		$variaveis['nome'] = '';
-		$variaveis['telefone'] = '';
-		$variaveis['cep'] = '';
-		$variaveis['logradouro'] = '';
-		$variaveis['numero_endereco'] = '';
-		$variaveis['complemento'] = '';
-		$variaveis['bairro'] = '';
-		$variaveis['id_cidade'] = '';
-		$variaveis['referencia'] = '';
-		$variaveis['observacao_geral'] = '';
-		$variaveis['status'] = '';
-		
+		$variaveis['tipo_tela'] = 'nova';		
 		$variaveis['instituicoes'] = $this->m_instituicao->instituicoes();
 		$variaveis['cidades'] = $this->m_instituicao->cidades();
 		
@@ -37,9 +24,7 @@ class Instituicoes extends MY_Controller {
 		$this->load->view('rodapes/v_rodape_padrao');		
 	}
 	
-	public function cadastrar() {
-		$id_instituicao = $_GET['id_instituicao'];
-		
+	public function cadastrar() {		
 		$nome = $this->input->post('nome');
 		$telefone = $this->input->post('telefone');
 		$cep = $this->input->post('cep');
@@ -51,8 +36,7 @@ class Instituicoes extends MY_Controller {
 		$referencia = $this->input->post('referencia');
 		$observacao_geral = $this->input->post('observacao_geral');
 		
-		$dados= array(
-			'nome' => $nome,
+		$dados = ['nome' => $nome,
 			'telefone' => $telefone,
 			'cep' => $cep,
 			'logradouro' => $logradouro,
@@ -62,19 +46,14 @@ class Instituicoes extends MY_Controller {
 			'id_cidade' => $id_cidade,
 			'referencia' => $referencia,
 			'observacao_geral' => $observacao_geral,
-			'status' => 'A'
-			);
+			'status' => 'A'];
 			
 		$this->m_instituicao->cadastrar($dados);
 		
-		$variaveis['instituicoes'] = $this->m_instituicao->instituicoes();
-		$this->load->view('cabecalhos/v_cabecalho_padrao');
-		$this->load->view('v_instituicoes', $variaveis);
-		$this->load->view('rodapes/v_rodape_padrao');
+		redirect('instituicoes/');
 	}
 	
-	public function editar_instituicao() {
-		$id_instituicao = $_GET['id_instituicao'];
+	public function editar_instituicao($id_instituicao){
 		
 		$instituicao = $this->m_instituicao->instituicao($id_instituicao);
 		
@@ -100,9 +79,8 @@ class Instituicoes extends MY_Controller {
 		$this->load->view('rodapes/v_rodape_padrao');		
 	}
 	
-	public function salvar_edicao() {
-		$id_instituicao = $_GET['id_instituicao'];
-		
+	public function salvar_edicao(){		
+		$id_instituicao = $this->input->post('id_instituicao');
 		$nome = $this->input->post('nome');
 		$telefone = $this->input->post('telefone');
 		$cep = $this->input->post('cep');
@@ -130,20 +108,11 @@ class Instituicoes extends MY_Controller {
 			
 		$this->m_instituicao->editar_instituicao($dados,$id_instituicao);
 		
-		$variaveis['instituicoes'] = $this->m_instituicao->instituicoes();
-		$this->load->view('cabecalhos/v_cabecalho_padrao');
-		$this->load->view('v_instituicoes', $variaveis);
-		$this->load->view('rodapes/v_rodape_padrao');
+		redirect('instituicoes/');
 	}
 	
-	public function excluir_instituicao(){
-		$id_instituicao = $_GET['id_instituicao'];
-		
+	public function excluir_instituicao($id_instituicao){		
 		$this->m_instituicao->excluir_instituicao($id_instituicao);
-			
-		$variaveis['instituicoes'] = $this->m_instituicao->instituicoes();
-		$this->load->view('cabecalhos/v_cabecalho_padrao');
-		$this->load->view('v_instituicoes', $variaveis);
-		$this->load->view('rodapes/v_rodape_padrao');
-		}
+		redirect('instituicoes/');
+	}
 }
